@@ -36,6 +36,6 @@ render() {
     <tbody>
         {this.state.students.map((student, index)=>(<Students student={student} key={index}/>))}
     </tbody>
-    </table>
-</div>)}
-}
+    </table>                                            
+</div>)} // MUST MAKE SURE IF YOU STATE THE RENDER IN THE FILE, THEN YOU DO NOT USE PROPS
+} // AFTER THE MAP, YOU MUST SET THE VARIABLE EQUAL TO THE KEY AND USE THE SAME VARIABLE IN THE FILE YOURE CALLING+IMPORTING

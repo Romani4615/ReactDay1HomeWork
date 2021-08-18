@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router';
 import Kekambas from './views/Kekambas';
-
 import Navbar from './components/Navbar'
 import About from './views/About';
 import Home from "./views/Home"
-
+import Users from './views/Users';
+import Posts from './views/Posts';
 
 export default class App extends Component {
   constructor(props){        // FIRST TO RUN
@@ -51,14 +51,20 @@ componentDidMount(){              // THIRD TO RUN, MOUNTING HAPPENS HERE
             <Route exact path="/">
             <Home myName={myName} updateName={this.updateName} allRacers={this.state.racers}/> 
             </Route>
-            <Route exact path="/About">
+            <Route exact path="/about">
             <About />
           </Route>
-            <Route exact path="/Students">
+            <Route exact path="/students">
             <Kekambas /> 
           </Route>
+            <Route exact path="/users">
+            <Users /> 
+          </Route>
+            <Route exact path="/posts">
+            <Posts /> 
+          </Route>
           </Switch>
-          <h1>Single Page Test</h1>
+          {/* <h1>Single Page Test</h1> */}
         </div>
       </div>
    )
