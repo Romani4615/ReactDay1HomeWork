@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router';
-import Kekambas from './views/Kekambas';
+import CreatePost from './components/CreatePost';
 import Navbar from './components/Navbar'
 import About from './views/About';
+import CreateUser from './views/CreateUser';
 import Home from "./views/Home"
-import Users from './views/Users';
+import Kekambas from './views/Kekambas';
 import Posts from './views/Posts';
+import Users from './views/Users';
 
 export default class App extends Component {
   constructor(props){        // FIRST TO RUN
@@ -48,20 +50,26 @@ componentDidMount(){              // THIRD TO RUN, MOUNTING HAPPENS HERE
         <Navbar myName={myName}/>
         <div className="container">
           <Switch>
-            <Route exact path="/">
+          <Route exact path="/">
             <Home myName={myName} updateName={this.updateName} allRacers={this.state.racers}/> 
-            </Route>
-            <Route exact path="/about">
+          </Route>
+          <Route exact path="/about">
             <About />
           </Route>
-            <Route exact path="/students">
+          <Route exact path="/students">
             <Kekambas /> 
           </Route>
-            <Route exact path="/users">
+          <Route exact path="/users">
             <Users /> 
           </Route>
-            <Route exact path="/posts">
+          <Route exact path="/posts">
             <Posts /> 
+          </Route>
+          <Route exact path="/create-post">
+            <CreatePost /> 
+          </Route>
+            <Route exact path="/create-user">
+            <CreateUser /> 
           </Route>
           </Switch>
           {/* <h1>Single Page Test</h1> */}

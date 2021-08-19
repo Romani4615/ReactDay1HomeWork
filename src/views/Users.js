@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import UserInfo from '../components/UserInfo'
 export default class Users extends Component {
     constructor(props){
@@ -13,16 +14,16 @@ componentDidMount(){
     .then(data => {
         console.log(data)
         this.setState({
-        users: data 
+        users: data.users  // indexing through flask object users=users
         })                      //promise based function, once promise 1 is done, passed in ad data, 2 .then is logged in as data      
     })
 }
     render() {
         return (
             <div>
-                This is the users page
+                <Link to='/create-user' className="btn btn-danger">Create User</Link>
                 <div className="row">
-                {this.state.users.map((u) => <UserInfo user={u} />)}  {/* mapping over same list of users, u through UserInfo, when rendered it will show x number of users}*/}
+                {this.state.users.map((u) => <UserInfo user={u} />)}  {/*mapping over same list of users, u through UserInfo, when rendered it will show x number of users}*/}
                 {/* for each u in users returns user={u} */}
                 </div>
             </div>
