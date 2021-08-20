@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router';
 import CreatePost from './components/CreatePost';
 import Navbar from './components/Navbar'
+import SinglePost from './components/SinglePost';
+import SingleUser from './components/SingleUser';
 import About from './views/About';
 import CreateUser from './views/CreateUser';
 import Home from "./views/Home"
@@ -71,6 +73,8 @@ componentDidMount(){              // THIRD TO RUN, MOUNTING HAPPENS HERE
             <Route exact path="/create-user">
             <CreateUser /> 
           </Route>
+            <Route exact path="/users/:id" component={SingleUser} />
+            <Route exact path="/posts/:id" component={SinglePost} />
           </Switch>
           {/* <h1>Single Page Test</h1> */}
         </div>

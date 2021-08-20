@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import DisplayPosts from './DisplayPosts'
 import moment from 'moment';
+
+import { Link } from 'react-router-dom';
 export default class Posts extends Component {
     constructor(props){
         super(props);
@@ -22,16 +24,21 @@ fetch("http://localhost:5000/api/posts")
 }
 
 render() {
-    let posts = this.state.posts
+    let posts = this.props.posts
     if (posts){
         posts.sort((a,b) =>  moment(a.date_created) < moment(b.date_created) ? 1: -1)
     }
+    //LINK === SET A LINK TO ANOTHER PAGE
         return (
+            <>
+            <Link to="/create-post" className="btn btn-secondary mb-2">Create a Post</Link>  
             <div>
                 <ul className="row">
-                    {this.state.posts.map((i) => <DisplayPosts post={i}/>)}
+                    {this.state.posts.map((i, p) => <DisplayPosts post={i} key={p}/>)}
                </ul>
             </div>
+
+            </>
         )
     }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class UserInfo extends Component {
     render() {
@@ -10,7 +11,10 @@ export default class UserInfo extends Component {
                 <div className="card my-3">
                     
                   <h5 className="card-title text-center">{user.username}</h5>
-                  <a href={`mailTo:${user.email}`} className="btn btn-primary mx-5 mb-5">Email</a>
+                  <div className="d-flex flex-row justify-content-center">
+                  <a href={`mailTo:${user.email}`} className="btn btn-primary mx-1 mt-5">Email</a>
+                  <Link to={`/users/${user.id}`} className="btn btn-secondary mx-1 mt-5">Account Info</Link>
+                  </div>
               </div>
             </div>
             </div>
